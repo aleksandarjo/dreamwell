@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.golos {
+  font-family: "Golos Text", serif;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .invert-hover {
+    @apply group-hover/button:brightness-0 group-hover/button:invert;
+  }
+}
