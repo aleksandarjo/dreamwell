@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import NavLinks from "./NavLinks";
+import NavLinks from "./nav-links";
 import { Button } from "../ui/button";
 import { ROUTES } from "@/constants/route";
-import { MobileNavigation } from "./MobileNavigation";
-import Logo from "./Logo";
+import MobileNavigation from "./mobile-navigation";
+import Logo from "./logo";
 
 export default function Navbar() {
   return (

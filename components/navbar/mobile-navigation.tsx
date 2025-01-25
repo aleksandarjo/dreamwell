@@ -5,15 +5,16 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
-import NavLinks from "./NavLinks";
+import NavLinks from "./nav-links";
 import { ROUTES } from "@/constants/route";
 
-export function MobileNavigation() {
+export default function MobileNavigation() {
   return (
     <div className="xl:hidden">
       <Sheet>
@@ -25,9 +26,11 @@ export function MobileNavigation() {
             <TbMenuDeep className="!h-8 !w-8 text-white text-8xl" />
           </Button>
         </SheetTrigger>
+        <SheetDescription></SheetDescription>
         <SheetContent
           side="left"
           className="flex flex-col justify-between h-full"
+          aria-describedby={undefined}
         >
           <div>
             <SheetTitle className="hidden">Navigation</SheetTitle>
