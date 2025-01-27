@@ -9,33 +9,18 @@ export async function GET(request: NextRequest) {
   const minPrice = parseInt(searchParams.get("min") || "0");
   const maxPrice = parseInt(searchParams.get("max") || "99999999");
 
-  let filteredProperties = properties.filter((property) => {
-    if (!query) return NextResponse.json(properties);
-    return property.title.toLowerCase().includes(query!.toLowerCase());
+  const filteredProperties = properties.filter((property) => {
+    if (query && !property.title.toLowerCase().includes(query.toLowerCase())) {
+      return false;
+    }
+
+    const price = property.sale || property.rent;
+    if (price! < minPrice || price! > maxPrice) {
+      return false;
+    }
+
+    return true;
   });
-
-  if (minPrice) {
-    filteredProperties = filteredProperties.filter((property) => {
-      if (property.sale) return property.sale >= minPrice;
-      if (property.rent) return property.rent >= minPrice;
-    });
-  }
-
-  if (maxPrice) {
-    filteredProperties = filteredProperties.filter((property) => {
-      if (property.sale) return property.sale <= maxPrice;
-      if (property.rent) return property.rent <= maxPrice;
-    });
-  }
-
-  if (minPrice && maxPrice) {
-    filteredProperties = filteredProperties.filter((property) => {
-      if (property.sale)
-        return property.sale >= minPrice && property.sale <= maxPrice;
-      if (property.rent)
-        return property.rent >= minPrice && property.rent <= maxPrice;
-    });
-  }
 
   //prettier-ignore
   const paginatedData = filteredProperties.slice((page - 1) * limit, page * limit);
