@@ -6,6 +6,7 @@ import { Button } from "../ui/button";
 import { FaArrowRight } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 import { propertyAttributes } from "@/constants/index";
+import { cva } from "class-variance-authority";
 
 type PropertyCardProps = {
   orientation?: "horizontal" | "vertical";
@@ -16,12 +17,7 @@ export default function PropertyCard({
 }: PropertyCardProps) {
   return (
     <section className="flex flex-col gap-10">
-      <div
-        className={cn(
-          orientation === "vertical" ? "max-w-[390px]" : "w-full",
-          `relative bg-white px-2.5 pt-3 pb-5 shadow-main rounded-[15px]`
-        )}
-      >
+      <div className={cardVariants({ orientation })}>
         <button className="w-10 h-10 bg-white z-10 shadow-main rounded-full absolute top-6 right-6 flex items-center justify-center">
           <PiHeartBold className="w-6 h-7 text-primary" />
         </button>
@@ -45,12 +41,7 @@ export default function PropertyCard({
             )}
           >
             <div>
-              <h3
-                className={cn(
-                  orientation === "vertical" ? "min-h-[70px]" : "max-w-xl",
-                  "text-dark-blue line-clamp-2 leading-tight text-[28px] font-semibold"
-                )}
-              >
+              <h3 className={cardTitleVariants({ orientation })}>
                 Beach View Villa
               </h3>
               <div className="flex items-center gap-1">
@@ -60,19 +51,8 @@ export default function PropertyCard({
                 </span>
               </div>
             </div>
-            <div
-              className={cn(
-                orientation === "vertical"
-                  ? "grid-cols-[350px_1fr]"
-                  : "grid grid-cols-[350px_410px]  items-center justify-between"
-              )}
-            >
-              <div
-                className={cn(
-                  orientation === "vertical" ? "mt-14" : "",
-                  "grid grid-cols-2 gap-1 items-center justify-between"
-                )}
-              >
+            <div className={cardAttributesWrapperVariants({ orientation })}>
+              <div className={cardAttributesVariants({ orientation })}>
                 {propertyAttributes.map((item) => (
                   <article
                     key={item.id}
@@ -87,12 +67,7 @@ export default function PropertyCard({
                 ))}
               </div>
 
-              <div
-                className={cn(
-                  orientation === "vertical" ? "mt-5" : "",
-                  "grid grid-cols-[75%_25%] gap-2.5"
-                )}
-              >
+              <div className={cardFooterVariants({ orientation })}>
                 <div className="border border-gray/50 rounded-xl p-4">
                   <h5 className="text-base">For Rent</h5>
                   <h4 className="text-black font-bold text-2xl">
@@ -115,3 +90,72 @@ export default function PropertyCard({
     </section>
   );
 }
+
+const cardVariants = cva(
+  "relative bg-white px-2.5 pt-3 pb-5 shadow-main rounded-[15px]",
+  {
+    variants: {
+      orientation: {
+        horizontal: "w-full",
+        vertical: " max-w-[390px]",
+      },
+    },
+    defaultVariants: {
+      orientation: "vertical",
+    },
+  }
+);
+
+const cardTitleVariants = cva(
+  "text-dark-blue line-clamp-2 leading-tight text-[28px] font-semibold",
+  {
+    variants: {
+      orientation: {
+        horizontal: "max-w-xl",
+        vertical: "min-h-[70px]",
+      },
+    },
+    defaultVariants: {
+      orientation: "vertical",
+    },
+  }
+);
+
+const cardAttributesVariants = cva(
+  "grid grid-cols-2 gap-1 items-center justify-between",
+  {
+    variants: {
+      orientation: {
+        horizontal: "",
+        vertical: "mt-14",
+      },
+    },
+    defaultVariants: {
+      orientation: "vertical",
+    },
+  }
+);
+
+const cardAttributesWrapperVariants = cva("", {
+  variants: {
+    orientation: {
+      horizontal: "grid grid-cols-[350px_410px] items-center justify-between",
+      vertical: "grid-cols-[350px_1fr]",
+    },
+  },
+  defaultVariants: {
+    orientation: "vertical",
+  },
+});
+
+const cardFooterVariants = cva("grid grid-cols-[75%_25%] gap-2.5", {
+  variants: {
+    orientation: {
+      horizontal: "",
+      vertical: "mt-5",
+    },
+  },
+  defaultVariants: {
+    orientation: "vertical",
+  },
+});
