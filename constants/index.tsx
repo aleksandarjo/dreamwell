@@ -1,6 +1,6 @@
 import { ROUTES } from "./route";
 
-import { bathIcon, bedIcon, garageIcon, squareIcon } from "@/public/index";
+import { BathIcon, BedIcon, GarageIcon, SquareIcon } from "@/public/index";
 
 export const navLinks = [
   {
@@ -29,28 +29,28 @@ export const propertyAttributes = [
   {
     id: 1,
     label: "2 beds",
-    src: bedIcon,
+    src: BedIcon,
     alt: "bed",
     isEven: false,
   },
   {
     id: 2,
     label: "no garage",
-    src: garageIcon,
+    src: GarageIcon,
     alt: "garage",
     isEven: true,
   },
   {
     id: 3,
     label: "2 baths",
-    src: bathIcon,
+    src: BathIcon,
     alt: "bath",
     isEven: false,
   },
   {
     id: 4,
     label: "1,235 sqft",
-    src: squareIcon,
+    src: SquareIcon,
     alt: "square",
     isEven: true,
   },

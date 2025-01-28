@@ -1,6 +1,6 @@
-import bathIcon from "@/public/icons/bath.svg";
-import bedIcon from "@/public/icons/bed.svg";
-import garageIcon from "@/public/icons/garage.svg";
-import squareIcon from "@/public/icons/square.svg";
+import BathIcon from "@/public/icons/bath.svg";
+import BedIcon from "@/public/icons/bed.svg";
+import GarageIcon from "@/public/icons/garage.svg";
+import SquareIcon from "@/public/icons/square.svg";
 
-export { bathIcon, bedIcon, garageIcon, squareIcon };
+export { BathIcon, BedIcon, GarageIcon, SquareIcon };
