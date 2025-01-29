@@ -6,9 +6,9 @@ import { Button } from "../ui/button";
 import { FaArrowRight } from "react-icons/fa6";
 import { cn } from "@/lib/utils";
 import { propertyAttributes } from "@/constants/index";
-import { cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
-type PropertyCardProps = {
+type PropertyCardProps = VariantProps<typeof cardVariants> & {
   orientation?: "horizontal" | "vertical";
 };
 
