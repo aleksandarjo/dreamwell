@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Golos_Text, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
-
-import { server } from "@/mocks/server";
+import ReactQueryProviders from "@/providers/providers";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,8 +34,11 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${golos.variable}`}>
       <body className="inter antialiased bg-dark-blue">
         <div className="container">
-          <Navbar />
-          {children}
+          <ReactQueryProviders>
+            <ReactQueryDevtools initialIsOpen={false} />
+            <Navbar />
+            {children}
+          </ReactQueryProviders>
         </div>
       </body>
     </html>
