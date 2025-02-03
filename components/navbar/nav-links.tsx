@@ -1,10 +1,12 @@
 "use client";
 
-import { navLinks } from "@/constants";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+
+import { cn } from "@/lib/utils";
+import { navLinks } from "@/constants";
+
 import { SheetClose } from "../ui/sheet";
 
 type NavLinksProps = {
@@ -37,7 +39,7 @@ export default function NavLinks({ isMobileNav = false }: NavLinksProps) {
 
   return (
     <ul
-      className={`${isMobileNav ? "flex-col gap-2.5 items-start mt-20 uppercase" : "max-xl:hidden items-center gap-14 capitalize"} flex`}
+      className={`${isMobileNav ? "mt-20 flex-col items-start gap-2.5 uppercase" : "items-center gap-14 capitalize max-xl:hidden"} flex`}
     >
       {navLinks.map((link) =>
         isMobileNav ? (

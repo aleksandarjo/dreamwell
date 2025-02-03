@@ -4,7 +4,7 @@ import PropertyCard from "@/components/cards/property-card";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white  py-10 px-2.5">
+    <div className="min-h-screen bg-white  px-2.5 py-10">
       <PropertyCard />
       <PropertyCard orientation="horizontal" />
     </div>

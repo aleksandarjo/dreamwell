@@ -1,12 +1,13 @@
 import Image from "next/image";
-import { PiHeartBold } from "react-icons/pi";
-import { PiHeartFill } from "react-icons/pi";
+import { PiHeartBold, PiHeartFill } from "react-icons/pi";
 import { IoLocationOutline } from "react-icons/io5";
-import { Button } from "../ui/button";
 import { FaArrowRight } from "react-icons/fa6";
+import { cva, type VariantProps } from "class-variance-authority";
+
 import { cn } from "@/lib/utils";
 import { propertyAttributes } from "@/constants/index";
-import { cva, type VariantProps } from "class-variance-authority";
+
+import { Button } from "../ui/button";
 
 type PropertyCardProps = VariantProps<typeof cardVariants> & {
   orientation?: "horizontal" | "vertical";
@@ -18,15 +19,15 @@ export default function PropertyCard({
   return (
     <section className="flex flex-col gap-10">
       <div className={cardVariants({ orientation })}>
-        <button className="w-10 h-10 bg-white z-10 shadow-main rounded-full absolute top-6 right-6 flex items-center justify-center">
-          <PiHeartBold className="w-6 h-7 text-primary" />
+        <button className="absolute right-6 top-6 z-10 flex size-10 items-center justify-center rounded-full bg-white shadow-main">
+          <PiHeartBold className="h-7 w-6 text-primary" />
         </button>
         <div
           className={cn(
             orientation === "vertical" ? "" : "grid grid-cols-[387px_1fr]"
           )}
         >
-          <div className="relative w-[360px] h-[263px] max-w-full">
+          <div className="relative h-[263px] w-[360px] max-w-full">
             <Image
               src="/images/property-1.png"
               alt="property"
@@ -45,7 +46,7 @@ export default function PropertyCard({
                 Beach View Villa
               </h3>
               <div className="flex items-center gap-1">
-                <IoLocationOutline className="w-3.5 h-3.5 text-gray/60" />
+                <IoLocationOutline className="size-3.5 text-gray/60" />
                 <span className="text-sm text-gray/60">
                   Denpasar, Bali, Indonesia
                 </span>
@@ -62,24 +63,24 @@ export default function PropertyCard({
                     )}
                   >
                     <Image src={item.src} alt={item.alt} />
-                    <p className="text-gray text-base">{item.label}</p>
+                    <p className="text-base text-gray">{item.label}</p>
                   </article>
                 ))}
               </div>
 
               <div className={cardFooterVariants({ orientation })}>
-                <div className="border border-gray/50 rounded-xl p-4">
+                <div className="rounded-xl border border-gray/50 p-4">
                   <h5 className="text-base">For Rent</h5>
-                  <h4 className="text-black font-bold text-2xl">
+                  <h4 className="text-2xl font-bold text-black">
                     $1,900
-                    <span className="text-gray text-base font-normal">
+                    <span className="text-base font-normal text-gray">
                       /month
                     </span>
                   </h4>
                 </div>
                 <div>
-                  <Button className="w-full h-full">
-                    <FaArrowRight className="w-6 h-6 text-5xl" />
+                  <Button className="size-full">
+                    <FaArrowRight className="size-6 text-5xl" />
                   </Button>
                 </div>
               </div>
@@ -92,7 +93,7 @@ export default function PropertyCard({
 }
 
 const cardVariants = cva(
-  "relative bg-white px-2.5 pt-3 pb-5 shadow-main rounded-[15px]",
+  "relative rounded-[15px] bg-white px-2.5 pb-5 pt-3 shadow-main",
   {
     variants: {
       orientation: {
@@ -107,7 +108,7 @@ const cardVariants = cva(
 );
 
 const cardTitleVariants = cva(
-  "text-dark-blue line-clamp-2 leading-tight text-[28px] font-semibold",
+  "line-clamp-2 text-[28px] font-semibold leading-tight text-dark-blue",
   {
     variants: {
       orientation: {
@@ -122,7 +123,7 @@ const cardTitleVariants = cva(
 );
 
 const cardAttributesVariants = cva(
-  "grid grid-cols-2 gap-1 items-center justify-between",
+  "grid grid-cols-2 items-center justify-between gap-1",
   {
     variants: {
       orientation: {

@@ -1,4 +1,5 @@
 import { http, HttpResponse } from "msw";
+
 import properties from "@/data/real-estate-data.json";
 
 export const handlers = [

@@ -1,4 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
+
 import properties from "@/data/real-estate-data.json";
 
 export async function GET(request: NextRequest) {

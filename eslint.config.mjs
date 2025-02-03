@@ -22,6 +22,21 @@ export default [
   {
     rules: {
       "no-undef": "off",
+      camelcase: "off",
+      "import/order": [
+        "error",
+        {
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+          ],
+          "newlines-between": "always",
+        },
+      ],
     },
   },
 ];

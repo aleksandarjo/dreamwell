@@ -1,6 +1,6 @@
-import { ROUTES } from "./route";
-
 import { BathIcon, BedIcon, GarageIcon, SquareIcon } from "@/public/index";
+
+import { ROUTES } from "./route";
 
 export const navLinks = [
   {

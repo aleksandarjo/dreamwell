@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { TbMenuDeep } from "react-icons/tb";
+import Image from "next/image";
+import Link from "next/link";
 
 import {
   Sheet,
@@ -9,10 +10,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Image from "next/image";
-import Link from "next/link";
-import NavLinks from "./nav-links";
+import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/constants/route";
+
+import NavLinks from "./nav-links";
 
 export default function MobileNavigation() {
   return (
@@ -20,16 +21,16 @@ export default function MobileNavigation() {
       <Sheet>
         <SheetTrigger asChild>
           <Button
-            className="bg-transparent border-none hover:bg-transparent "
+            className="border-none bg-transparent hover:bg-transparent "
             variant="outline"
           >
-            <TbMenuDeep className="!h-8 !w-8 text-white text-8xl" />
+            <TbMenuDeep className="!h-8 !w-8 text-8xl text-white" />
           </Button>
         </SheetTrigger>
         <SheetDescription></SheetDescription>
         <SheetContent
           side="left"
-          className="flex flex-col justify-between h-full"
+          className="flex h-full flex-col justify-between"
           aria-describedby={undefined}
         >
           <div>
@@ -42,12 +43,12 @@ export default function MobileNavigation() {
                   height={40}
                   alt="Logo"
                 />
-                <p className="golos text-primary text-2xl">Dreamwell</p>
+                <p className="golos text-2xl text-primary">Dreamwell</p>
               </Link>
             </SheetClose>
             <NavLinks isMobileNav />
           </div>
-          <div className="flex flex-col w-full gap-2.5">
+          <div className="flex w-full flex-col gap-2.5">
             <Button>
               <Link className="flex items-center gap-2.5" href={ROUTES.SIGN_IN}>
                 <Image

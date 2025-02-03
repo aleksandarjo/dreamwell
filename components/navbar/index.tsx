@@ -1,14 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import NavLinks from "./nav-links";
-import { Button } from "../ui/button";
+
 import { ROUTES } from "@/constants/route";
+
+import { Button } from "../ui/button";
+
+import NavLinks from "./nav-links";
 import MobileNavigation from "./mobile-navigation";
 import Logo from "./logo";
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between pt-7 pb-5">
+    <nav className="flex items-center justify-between pb-5 pt-7">
       <div className="flex items-center gap-20">
         <Logo />
         <NavLinks />

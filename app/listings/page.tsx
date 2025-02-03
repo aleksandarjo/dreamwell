@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+
 import { useProperties } from "../../hooks/useProperties";
 
 export default function PropertiesPage() {
