@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+
 import { getProperties } from "@/services/property-service";
 
 export function useProperties() {

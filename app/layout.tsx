@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
 import { Golos_Text, Inter } from "next/font/google";
+
 import "./globals.css";
-import React from "react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 import Navbar from "@/components/navbar";
 import ReactQueryProvider from "@/providers/providers";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { setupMocks } from "../mocks";
-
-// if (process.env.NODE_ENV === "development") {
-import("../mocks").then(({ setupMocks }) => {
-  setupMocks();
-});
-// }
 
 const inter = Inter({
   variable: "--font-inter",

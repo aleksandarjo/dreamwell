@@ -62,6 +62,9 @@ const prettierConfig = [
   {
     files: ["**/*.ts", "**/*.tsx"],
   },
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+  },
 ];
 
 export default prettierConfig;
