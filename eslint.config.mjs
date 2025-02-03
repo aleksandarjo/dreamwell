@@ -1,5 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
 
@@ -21,22 +22,20 @@ export default [
   ),
   {
     rules: {
-      "no-undef": "off",
-      camelcase: "off",
       "import/order": [
-        "error",
+        "warn",
         {
           groups: [
-            "builtin",
             "external",
+            "builtin",
             "internal",
-            "parent",
-            "sibling",
-            "index",
+            ["parent", "sibling", "index"],
           ],
-          "newlines-between": "always",
+          newlinesBetween: "never",
         },
       ],
+
+      "no-unused-vars": "warn",
     },
   },
 ];
