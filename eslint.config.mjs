@@ -1,8 +1,9 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-
-import js from "@eslint/js";
+import { fixupPluginRules } from "@eslint/compat";
 import { FlatCompat } from "@eslint/eslintrc";
+import js from "@eslint/js";
+import _import from "eslint-plugin-import";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +14,9 @@ const compat = new FlatCompat({
 });
 
 export default [
+  {
+    ignores: ["components/ui/**/*"],
+  },
   ...compat.extends(
     "next/core-web-vitals",
     "next/typescript",
@@ -21,21 +25,40 @@ export default [
     "prettier"
   ),
   {
+    plugins: _import,
+
     rules: {
       "import/order": [
         "warn",
         {
           groups: [
-            "external",
             "builtin",
+            "external",
             "internal",
-            ["parent", "sibling", "index"],
+            ["parent", "sibling"],
+            "index",
+            "object",
           ],
-          newlinesBetween: "never",
+          pathGroups: [
+            {
+              pattern: "@app/**",
+              group: "external",
+              position: "after",
+            },
+          ],
+          pathGroupsExcludedImportTypes: ["builtin"],
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
         },
       ],
-
-      "no-unused-vars": "warn",
+    },
+  },
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: {
+      "no-undef": "off",
     },
   },
 ];

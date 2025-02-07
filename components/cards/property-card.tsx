@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { PiHeartBold, PiHeartFill } from "react-icons/pi";
-import { IoLocationOutline } from "react-icons/io5";
-import { FaArrowRight } from "react-icons/fa6";
 import { cva, type VariantProps } from "class-variance-authority";
+import Image from "next/image";
+import { FaArrowRight } from "react-icons/fa6";
+import { IoLocationOutline } from "react-icons/io5";
+import { PiHeartBold, PiHeartFill } from "react-icons/pi";
 
-import { cn } from "@/lib/utils";
 import { propertyAttributes } from "@/constants/index";
+import { cn } from "@/lib/utils";
 
 import { Button } from "../ui/button";
 
