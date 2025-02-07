@@ -31,8 +31,8 @@ const prettierConfig = [
         "warn",
         {
           groups: [
-            "external",
             "builtin",
+            "external",
             "internal",
             ["parent", "sibling"],
             "index",
