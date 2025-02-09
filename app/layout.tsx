@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${golos.variable}`}>
-      <body className="inter bg-dark-blue antialiased">
+      <body className="inter antialiased">
         <div className="container">
           <ReactQueryProvider>
             <ReactQueryDevtools initialIsOpen={false} />
