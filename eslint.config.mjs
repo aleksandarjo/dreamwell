@@ -15,6 +15,7 @@ const compat = new FlatCompat({
 });
 
 const prettierConfig = [
+const prettierConfig = [
   {
     ignores: ["components/ui/**/*"],
   },
@@ -58,18 +59,6 @@ const prettierConfig = [
             order: "asc",
             caseInsensitive: true,
           },
-          pathGroups: [
-            {
-              pattern: "@app/**",
-              group: "external",
-              position: "after",
-            },
-          ],
-          pathGroupsExcludedImportTypes: ["builtin"],
-          alphabetize: {
-            order: "asc",
-            caseInsensitive: true,
-          },
         },
       ],
       "no-unused-vars": "warn",
@@ -78,9 +67,6 @@ const prettierConfig = [
       "@typescript-eslint/no-explicit-any": "warn",
       "no-use-before-define": "warn",
     },
-  },
-  {
-    files: ["**/*.ts", "**/*.tsx"],
   },
   {
     files: ["**/*.ts", "**/*.tsx"],
