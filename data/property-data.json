@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "title": "Azure Bay Apartment",
+    "location": "East Nathaniel, Togo",
+    "beds": 4,
+    "baths": 3,
+    "garage": 2,
+    "sqft": 4667,
+    "rent": null,
+    "sale": 877370,
+    "type": "apartment",
+    "images": {
+      "main": [
+        "https://via.placeholder.com/1073x650",
+        "https://via.placeholder.com/1073x650",
+        "https://via.placeholder.com/1073x650",
+        "https://via.placeholder.com/1073x650"
+      ],
+      "thumbnail": [
+        "https://via.placeholder.com/527x315",
+        "https://via.placeholder.com/527x315",
+        "https://via.placeholder.com/527x315",
+        "https://via.placeholder.com/527x315"
+      ]
+    },
+    "favorite": false
+  },
+  {
+    "id": "2",
+    "title": "Meadowbrook Home",
+    "location": "Sarahtown, Kuwait",
+    "beds": 2,
+    "baths": 1,
+    "garage": 2,
+    "sqft": 4292,
+    "rent": null,
+    "sale": 153261,
+    "type": "house",
+    "images": {
+      "main": [
+        "https://via.placeholder.com/1073x650",
+        "https://via.placeholder.com/1073x650",
+        "https://via.placeholder.com/1073x650",
+        "https://via.placeholder.com/1073x650"
+      ],
+      "thumbnail": [
+        "https://via.placeholder.com/527x315",
+        "https://via.placeholder.com/527x315",
+        "https://via.placeholder.com/527x315",
+        "https://via.placeholder.com/527x315"
+      ]
+    },
+    "favorite": false
+  }
+]

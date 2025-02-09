@@ -17,7 +17,7 @@ import "swiper/css";
 import "swiper/css/thumbs";
 import { Button } from "../ui/button";
 
-export default function DetailSlider() {
+export default function ImageGallery() {
   const [open, setOpen] = useState<boolean>(false);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
