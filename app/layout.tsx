@@ -5,7 +5,7 @@ import "./globals.css";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import Navbar from "@/components/navbar";
-import ReactQueryProvider from "@/providers/providers";
+import ReactQueryProviders from "@/providers/providers";
 
 const inter = Inter({
   variable: "--font-inter",

@@ -8,6 +8,8 @@ import PropertiesList from "@/components/PropertiesList";
 
 import { getProperties } from "@/services/property-service";
 
+import { getProperties } from "@/services/property-service";
+
 export default async function Properties() {
   const queryClient = new QueryClient();
 
