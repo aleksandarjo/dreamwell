@@ -2,7 +2,7 @@ import { http, HttpResponse } from "msw";
 import properties from "@/data/real-estate-data.json";
 
 export const handlers = [
-  http.get("/api/properties", ({ request }) => {
+  http.get("http://localhost:3000/api/properties", ({ request }) => {
     const searchParams = request.nextUrl.searchParams;
     const query = searchParams.get("query");
     const page = parseInt(searchParams.get("page") || "1");
@@ -26,11 +26,14 @@ export const handlers = [
       return true;
     });
 
-    const paginatedData = filteredData.slice((page - 1) * limit, page * limit);
+    const paginatedData = filteredProperties.slice(
+      (page - 1) * limit,
+      page * limit
+    );
 
     return HttpResponse.json({
-      data: paginatedData,
-      total: filteredData.length,
+      data: [],
+      total: paginatedData.length,
       page,
       limit,
     });

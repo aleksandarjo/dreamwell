@@ -1,4 +1,3 @@
-// In Next.js, this file would be called: app/providers.tsx
 "use client";
 
 import {
@@ -6,6 +5,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import React from "react";
 
 function makeQueryClient() {
   return new QueryClient({
@@ -17,7 +17,7 @@ function makeQueryClient() {
   });
 }
 
-let browserQueryClient: QueryClient | undefined = undefined;
+let browserQueryClient: QueryClient | undefined;
 
 function getQueryClient() {
   if (isServer) {

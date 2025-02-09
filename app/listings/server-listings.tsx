@@ -1,9 +1,10 @@
-import { getProperties } from "@/services/property-service";
 import {
   dehydrate,
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
+import { getProperties } from "@/services/property-service";
+import PropertiesList from "@/components/PropertiesList";
 
 export default async function Properties() {
   const queryClient = new QueryClient();
@@ -15,7 +16,7 @@ export default async function Properties() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Properties />
+      <PropertiesList />
     </HydrationBoundary>
   );
 }
