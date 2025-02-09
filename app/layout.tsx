@@ -1,9 +1,10 @@
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { Metadata } from "next";
 import { Golos_Text, Inter } from "next/font/google";
 
 import "./globals.css";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
+import React from "react";
 import React from "react";
 import Navbar from "@/components/navbar";
 import ReactQueryProvider from "@/providers/providers";

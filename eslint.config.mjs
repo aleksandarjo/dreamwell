@@ -3,8 +3,6 @@ import { fileURLToPath } from "node:url";
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import _import from "eslint-plugin-import";
-import js from "@eslint/js";
-import _import from "eslint-plugin-import";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,37 +25,18 @@ const prettierConfig = [
   ),
   {
     plugins: _import,
-
-    plugins: _import,
-
     rules: {
       "import/order": [
         "warn",
         {
           groups: [
             "builtin",
-            "builtin",
             "external",
             "internal",
             ["parent", "sibling"],
             "index",
             "object",
-            ["parent", "sibling"],
-            "index",
-            "object",
           ],
-          pathGroups: [
-            {
-              pattern: "@app/**",
-              group: "external",
-              position: "after",
-            },
-          ],
-          pathGroupsExcludedImportTypes: ["builtin"],
-          alphabetize: {
-            order: "asc",
-            caseInsensitive: true,
-          },
           pathGroups: [
             {
               pattern: "@app/**",
@@ -78,9 +57,6 @@ const prettierConfig = [
       "@typescript-eslint/no-explicit-any": "warn",
       "no-use-before-define": "warn",
     },
-  },
-  {
-    files: ["**/*.ts", "**/*.tsx"],
   },
   {
     files: ["**/*.ts", "**/*.tsx"],
